@@ -42,7 +42,8 @@
       "operatingsystem": "Ubuntu",
       "operatingsystemmajrelease": [
         "12.04",
-        "14.04"
+        "14.04",
+        "16.04"
       ]
     }
   ],

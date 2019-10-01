@@ -23,7 +23,7 @@ class icinga2::params {
      #Pick the right package provider:
       $package_provider = 'yum'
     }
-	
+
 	#RedHat systems:
     'RedHat': {
       #Pick the right package provider:
@@ -113,7 +113,7 @@ class icinga2::params {
           $server_plugin_package_install_options = '--no-install-recommends'
         }
         #...but 14.04 does:
-        '14.04': {
+        '14.04','16.04': {
           $icinga2_server_package = 'icinga2'
           $icinga2_server_plugin_packages = [ 'nagios-plugins', 'nagios-plugins-basic', 'nagios-plugins-common', 'nagios-plugins-standard', 'nagios-snmp-plugins', 'nagios-plugins-extra', 'nagios-plugins-contrib', 'nagios-nrpe-plugin']
           $icinga2_server_mail_package = 'mailutils'
@@ -241,7 +241,7 @@ class icinga2::params {
     #Fail if we're on any other OS:
     default: { fail("${::operatingsystem} is not supported!") }
   }
-  
+
   #Whether to purge object files or directories in /etc/icinga2/objects that aren't managed by Puppet
   $purge_unmanaged_object_files = false
 
@@ -272,7 +272,7 @@ class icinga2::params {
         '12.04': {
           $icinga2_server_service_name = 'icinga2'
         }
-        '14.04': {
+        '14.04','16.04': {
           $icinga2_server_service_name = 'icinga2'
         }
         #Fail if we're on any other Ubuntu release:
@@ -348,7 +348,7 @@ class icinga2::params {
       $nrpe_user            = 'nagios'
       $nrpe_group           = 'nagios'
     }
-   
+
    #Fail if we're on any other OS:
     default: { fail("${::operatingsystem} is not supported!") }
   }
@@ -387,7 +387,7 @@ class icinga2::params {
           $client_plugin_package_install_options = '--no-install-recommends'
         }
         #...but 14.04 does:
-        '14.04': {
+        '14.04','16.04': {
           $icinga2_client_packages = ['nagios-nrpe-server', 'nagios-plugins', 'nagios-plugins-basic', 'nagios-plugins-common', 'nagios-plugins-standard', 'nagios-snmp-plugins', 'nagios-plugins-extra', 'nagios-plugins-contrib', 'nagios-nrpe-plugin']
           #Specify '--no-install-recommends' so we don't inadvertently get Nagios 3 installed; it comes as a recommended package with most of the plugin packages:
           $client_plugin_package_install_options = '--no-install-recommends'
