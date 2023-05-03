@@ -120,7 +120,7 @@ class icinga2::params {
           #Specify '--no-install-recommends' so we don't inadvertently get Nagios 3 installed; it comes as a recommended package with most of the plugin packages:
           $server_plugin_package_install_options = '--no-install-recommends'
         }
-        '18.04': {
+        '18.04','20.04': {
           $icinga2_server_package = 'icinga2'
           $icinga2_server_plugin_packages = [ 'nagios-plugins', 'nagios-plugins-basic', 'nagios-plugins-common', 'nagios-plugins-standard', 'nagios-snmp-plugins', 'nagios-plugins-contrib', 'nagios-nrpe-plugin']
           $icinga2_server_mail_package = 'mailutils'
@@ -279,7 +279,7 @@ class icinga2::params {
         '12.04': {
           $icinga2_server_service_name = 'icinga2'
         }
-        '14.04','16.04','18.04': {
+        '14.04','16.04','18.04','20.04': {
           $icinga2_server_service_name = 'icinga2'
         }
         #Fail if we're on any other Ubuntu release:
